@@ -7,7 +7,7 @@ from chainer.training import extensions
 import chainer.functions as F
 import chainer.links as L
 import matplotlib.pyplot as plt
-from RNN import *
+from ANN import *
 
 def main():
     pass
