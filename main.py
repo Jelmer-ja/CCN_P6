@@ -12,12 +12,12 @@ from utils import *
 
 def main():
     epoch = 20
-    batch_size = 32
     train_data, test_data = get_mnist(n_train=1000,n_test=100,with_label=False,classes=[0])
     gen = Generator(784)
     dis = Discriminator(784)
     gen = GeneratorDistribution(784)
-    
+    iterator = RandomIterator()
+    optimizer = optimizers.SGD()
 
 def run_network():
     pass
