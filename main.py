@@ -58,17 +58,18 @@ def plot_loss(loss,epoch):
     plt.legend()
     plt.show()
 
-def showImages(gen):
+def showImages(gen,batch_size):
     f,axes = plt.subplots(2,5)
+    noise = randomsample(20, 10)
+    with chainer.using_config('train', False):
+        images = gen(noise)
     for i in range(0,10):
         if(i % 2 == 0):
             x = 0
         else:
             x = 1
         y = int(round(i/2,0))
-        noise = randomsample(20, 1)
-        image = gen(noise)
-        axes[x][y].imshow(np.reshape(image.data[:,], (28, 28), order='F'))
+        axes[x][y].imshow(np.reshape(images[i].data[:,], (28, 28), order='F'))
     plt.show()
 
 def showtrain(train):
